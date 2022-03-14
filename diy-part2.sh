@@ -36,7 +36,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 sed -i "s/zh_cn/en/g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s/zh_cn/en/g" luci/modules/luci-base/root/etc/uci-defaults/luci-base
 sed -i "s/+@LUCI_LANG_zh-cn/+@LUCI_LANG_en/g" package/lean/default-settings/Makefile
-sed -i "/po2lmo .\/po\/zh-cn\/default.po/d" package/lean/default-settings/Makefile
+# sed -i "/po2lmo .\/po\/zh-cn\/default.po/d" package/lean/default-settings/Makefile
 
 # Set Theme bootstrap
 sed -i "/uci commit luci/i uci set luci.main.mediaurlbase='/luci-static/bootstrap'" package/lean/default-settings/files/zzz-default-settings
@@ -76,7 +76,7 @@ sed -i "/\/etc\/shadow/a echo \"dest ram \/tmp\" >> \/etc\/opkg.conf" package/le
 sed -i "/\/etc\/shadow/a echo \"dest root \/\" > \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
 
 # create /opt
-sed -i "/\/usr\/bin\/ip/a mkdir \/opt" package/lean/default-settings/files/zzz-default-settings
+# sed -i "/\/usr\/bin\/ip/a mkdir \/opt" package/lean/default-settings/files/zzz-default-settings
 
 # luci
 #sed -i '/mwan.htm/s/^#\?/#/' package/lean/default-settings/files/zzz-default-settings
