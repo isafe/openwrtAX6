@@ -12,9 +12,9 @@
 
 ###################################################################################################################################
 # Banner
-date=`date +%d.%m.%Y-%H:%M`
-sed -i 's/OpenWrt/OpenWrt Build '$date' By Andrii Marchuk/g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/%D %V, %C/%D %V, '$date' By Andrii Marchuk/g' package/base-files/files/etc/banner
+# date=`date +%d.%m.%Y-%H:%M`
+# sed -i 's/OpenWrt/OpenWrt Build '$date' By Andrii Marchuk/g' package/lean/default-settings/files/zzz-default-settings
+# sed -i 's/%D %V, %C/%D %V, '$date' By Andrii Marchuk/g' package/base-files/files/etc/banner
 
 # Modify default IP
 # sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
@@ -33,47 +33,47 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 # Modify the version number
 #sed -i "s/OpenWrt /MuaChow build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 # Set default language
-sed -i "s/zh_cn/en/g" package/lean/default-settings/files/zzz-default-settings
-sed -i "s/zh_cn/en/g" luci/modules/luci-base/root/etc/uci-defaults/luci-base
-sed -i "s/+@LUCI_LANG_zh-cn/+@LUCI_LANG_en/g" package/lean/default-settings/Makefile
+# sed -i "s/zh_cn/en/g" package/lean/default-settings/files/zzz-default-settings
+# sed -i "s/zh_cn/en/g" luci/modules/luci-base/root/etc/uci-defaults/luci-base
+# sed -i "s/+@LUCI_LANG_zh-cn/+@LUCI_LANG_en/g" package/lean/default-settings/Makefile
 # sed -i "/po2lmo .\/po\/zh-cn\/default.po/d" package/lean/default-settings/Makefile
 
 # Set Theme bootstrap
-sed -i "/uci commit luci/i uci set luci.main.mediaurlbase='/luci-static/bootstrap'" package/lean/default-settings/files/zzz-default-settings
+# sed -i "/uci commit luci/i uci set luci.main.mediaurlbase='/luci-static/bootstrap'" package/lean/default-settings/files/zzz-default-settings
 
 # Set Timezone
 #sed -i "s@CST-8@'CET-1CEST,M3.5.0,M10.5.0/3'@g" package/lean/default-settings/files/zzz-default-settings
 #sed -i "s@Asia/Shanghai@'Europe/Warsaw'@g" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit system/i uci set system.ntp.server=''" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit system/i uci add_list system.ntp.server=0.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit system/i uci add_list system.ntp.server=1.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit system/i uci add_list system.ntp.server=2.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit system/i uci add_list system.ntp.server=3.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
+# sed -i "/uci commit system/i uci set system.ntp.server=''" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit system/i uci add_list system.ntp.server=0.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit system/i uci add_list system.ntp.server=1.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit system/i uci add_list system.ntp.server=2.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit system/i uci add_list system.ntp.server=3.cn.pool.ntp.org" package/lean/default-settings/files/zzz-default-settings
 
-sed -i "/uci commit system/a uci commit ntpclient" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[3].hostname='3.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[2].hostname='2.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[1].hostname='1.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
-sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[0].hostname='0.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit system/a uci commit ntpclient" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[3].hostname='3.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[2].hostname='2.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[1].hostname='1.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/uci commit ntpclient/i uci set ntpclient.@ntpserver[0].hostname='0.cn.pool.ntp.org'" package/lean/default-settings/files/zzz-default-settings
 
 
 # Add normal repos
-sed -i "/\/etc\/opkg\/distfeeds.conf/d" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"#src\/gz openwrt_core https:\/\/mirrors.cloud.tencent.com\/lede\/snapshots\/targets\/ipq807x\/generic\/packages\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_telephony https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/telephony\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_routing https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/routing\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_packages https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/packages\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_luci https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/luci\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_base https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/base\" > \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"arch aarch64_cortex-a53 20\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"arch aarch64_cortex-a53_neon-vfpv4 10\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"arch noarch 1\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"arch all 1\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"#option check_signature 1\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"option overlay_root \/overlay\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"lists_dir ext \/var\/opkg-lists\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"dest ram \/tmp\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
-sed -i "/\/etc\/shadow/a echo \"dest root \/\" > \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/opkg\/distfeeds.conf/d" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"#src\/gz openwrt_core https:\/\/mirrors.cloud.tencent.com\/lede\/snapshots\/targets\/ipq807x\/generic\/packages\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_telephony https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/telephony\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_routing https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/routing\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_packages https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/packages\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_luci https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/luci\" >> \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"src\/gz openwrt_base https:\/\/downloads.openwrt.org\/releases\/packages-21.02\/aarch64_cortex-a53\/base\" > \/etc\/opkg\/distfeeds.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"arch aarch64_cortex-a53 20\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"arch aarch64_cortex-a53_neon-vfpv4 10\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"arch noarch 1\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"arch all 1\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"#option check_signature 1\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"option overlay_root \/overlay\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"lists_dir ext \/var\/opkg-lists\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"dest ram \/tmp\" >> \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
+#sed -i "/\/etc\/shadow/a echo \"dest root \/\" > \/etc\/opkg.conf" package/lean/default-settings/files/zzz-default-settings
 
 # create /opt
 # sed -i "/\/usr\/bin\/ip/a mkdir \/opt" package/lean/default-settings/files/zzz-default-settings
