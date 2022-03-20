@@ -17,7 +17,7 @@
 # sed -i 's/%D %V, %C/%D %V, '$date' By Andrii Marchuk/g' package/base-files/files/etc/banner
 
 # Modify default IP
-# sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 # sed -i 's/255.255.255.0/255.255.254.0/g' package/base-files/files/bin/config_generate
 
 # # Modify default HostName
@@ -92,7 +92,8 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 ###################################################################################################################################
 
 # themes添加（svn co 命令意思：指定版本如https://github）
-git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
