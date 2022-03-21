@@ -92,7 +92,8 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 ###################################################################################################################################
 
 # themes添加（svn co 命令意思：指定版本如https://github）
-git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+#git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
@@ -101,6 +102,7 @@ git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package
 
 #添加额外非必须软件包
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 #git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 #git clone https://github.com/vernesong/OpenClash.git package/OpenClash
 # me #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
