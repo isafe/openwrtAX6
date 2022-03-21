@@ -17,7 +17,7 @@
 # sed -i 's/%D %V, %C/%D %V, '$date' By Andrii Marchuk/g' package/base-files/files/etc/banner
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
 # sed -i 's/255.255.255.0/255.255.254.0/g' package/base-files/files/bin/config_generate
 
 # # Modify default HostName
