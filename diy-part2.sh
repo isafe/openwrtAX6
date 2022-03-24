@@ -17,7 +17,7 @@
 # sed -i 's/%D %V, %C/%D %V, '$date' By Andrii Marchuk/g' package/base-files/files/etc/banner
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
+# sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
 # sed -i 's/255.255.255.0/255.255.254.0/g' package/base-files/files/bin/config_generate
 
 # # Modify default HostName
@@ -28,8 +28,7 @@ sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
 
 #Change the number of connections
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
-
-sed -i "s|^root|root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::|g" package/base-files/files/etc/shadow
+sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
 
 
 # Modify the version number
