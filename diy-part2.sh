@@ -93,6 +93,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 ###################################################################################################################################
 
 # themes添加（svn co 命令意思：指定版本如https://github）
+rm -rf package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
