@@ -61,7 +61,7 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
-        git revert -n edbd8d2e9839357f3a4f0a06174d243f362b1544
+        git revert -n edbd8d2e9839357f3a4f0a06174d243f362b1544 || true
         git config --global user.email "you@example.com"
         git add target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch
         git revert --continue
