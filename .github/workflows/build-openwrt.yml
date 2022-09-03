@@ -61,6 +61,9 @@ jobs:
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     
+    - name: Revert some drop sh*t
+      run: cp -rf $GITHUB_WORKSPACE/general/AX6/* openwrt/
+    
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
