@@ -61,13 +61,16 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        cd openwrt
-        git revert -n edbd8d2e9839357f3a4f0a06174d243f362b1544 ||:
-        git config --global user.email "you@example.com"
-        git config --global user.name "example"
-        git add -u
-        git commit -m "revert ipq807x: drop all xiaomi devices support"
+        #cd openwrt
+        #git revert -n edbd8d2e9839357f3a4f0a06174d243f362b1544 ||:
+        #git config --global user.email "you@example.com"
+        #git config --global user.name "example"
+        #git add -u
+        #git commit -m "revert ipq807x: drop all xiaomi devices support"
         #git revert --continue
+    
+    - name: Revert ipq807x drop all xiaomi devices support
+      run: cp -rf $GITHUB_WORKSPACE/general/AX6/* openwrt/
     
     - name: Load custom feeds
       run: |
