@@ -95,8 +95,8 @@ sed -i '/exit 0/i sed -i "s/services/system/g" /usr/lib/lua/luci/controller/cpuf
 ###################################################################################################################################
 
 # themes添加（svn co 命令意思：指定版本如https://github）
-rm -rf feeds/luci/themes/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon 
+#rm -rf feeds/luci/themes/luci-theme-argon
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon 
 rm -rf feeds/luci/themes/luci-theme-design
 git clone --depth 1 https://github.com/gngpp/luci-theme-design feeds/luci/themes/luci-theme-design
 rm -rf feeds/luci/applications/luci-app-design-config
