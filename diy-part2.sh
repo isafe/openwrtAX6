@@ -97,6 +97,11 @@ sed -i '/exit 0/i sed -i "s/services/system/g" /usr/lib/lua/luci/controller/cpuf
 # themes添加（svn co 命令意思：指定版本如https://github）
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon 
+rm -rf feeds/luci/themes/luci-theme-design
+git clone --depth 1 https://github.com/gngpp/luci-theme-design feeds/luci/themes/luci-theme-design
+rm -rf feeds/luci/applications/luci-app-design-config
+git clone --depth 1 https://github.com/gngpp/luci-app-design-config feeds/luci/applications/luci-app-design-config
+
 
 #rm -rf package/luci-theme-argon
 #git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
@@ -123,3 +128,6 @@ git clone https://github.com/kongfl888/luci-app-autorewan.git  package/luci-app-
 # me #git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
 # me #git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 #git clone -b luci https://github.com/pexcn/openwrt-chinadns-ng.git package/luci-app-chinadns-ng
+
+#禁止Turbo ACC 网络加速修改net.bridge.bridge-nf-call-iptables的值为1(修改为1后旁路由需开启ip动态伪装，影响下行带宽)。
+sed -i '/exit 0/i sed -i "s/\\[ -d \\/sys\\/kernel\\/debug\\/ecm\\/ecm_nss_ipv4 \\] \\&\\& return 0/\\[ -d \\/sys\\/kernel\\/debug\\/ecm\\/ecm_nss_ipv4 \\] \\&\\& return 1/g" /etc/init.d/qca-nss-ecm'  package/lean/default-settings/files/zzz-default-settings
