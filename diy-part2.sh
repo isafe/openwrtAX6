@@ -115,8 +115,8 @@ git clone --depth 1 https://github.com/gngpp/luci-app-design-config feeds/luci/a
 #添加额外非必须软件包
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/kongfl888/luci-app-autorewan.git  package/luci-app-autorewan
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
-git clone --depth=1 -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+# git clone --depth=1 -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 # git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 #git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 #git clone https://github.com/vernesong/OpenClash.git package/OpenClash
