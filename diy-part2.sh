@@ -46,9 +46,7 @@ sed -i "s/hostname='ImmortalWrt'/hostname='Redmi-AX6'/g" package/base-files/file
 rm -rf feeds/packages/net/msd_lite
 git_sparse_clone master https://github.com/immortalwrt/packages immortalwrt net/msd_lite && mv -n msd_lite feeds/packages/net/msd_lite
 
-#golang
-rm -rf feeds/packages/lang/golang
-cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
+
 
 
 ###################################################################################################################################
@@ -73,7 +71,15 @@ git clone --depth 1 https://github.com/gngpp/luci-app-design-config feeds/luci/a
 
 #添加额外非必须软件包
 # git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
-git clone https://github.com/kongfl888/luci-app-autorewan.git  package/luci-app-autorewan
+# git clone https://github.com/kongfl888/luci-app-autorewan.git  package/luci-app-autorewan
+
+#更换msd_lite为最新版（immortalwrt源）
+rm -rf feeds/packages/net/msd_lite
+git_sparse_clone master https://github.com/immortalwrt/packages immortalwrt net/msd_lite && mv -n msd_lite feeds/packages/net/msd_lite
+
+#golang
+rm -rf feeds/packages/lang/golang
+cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
